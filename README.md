@@ -1,5 +1,7 @@
 # Swagger Poser
 
+[![Build Status](https://img.shields.io/travis/lemonzinger/swagger-poser/master.svg?style=flat-square&branch=master)](https://travis-ci.org/lemonzinger/swagger-poser)
+
 Use [Swagger Poser](https://github.com/lemonzinger/poser) to generate mock data that match the Swagger spec
 
 ## Install
