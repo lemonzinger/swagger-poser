@@ -21,7 +21,11 @@ Use [Swagger Poser](https://github.com/lemonzinger/poser) to generate mock data 
 
 ## Install
 
-`swagger-poser` is installable through 2 different channels:
+### npm
+
+Install `swagger-poser ` with npm:
+
+    npm install swagger-poser --save
 
 
 ## Example usage
