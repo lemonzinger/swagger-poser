@@ -3,6 +3,7 @@ var gulp = require('gulp'),
 	mocha = require('gulp-mocha'),
 	istanbul = require('gulp-istanbul'),
 	jshint = require('gulp-jshint'),
+	codecov = require('gulp-codecov'),
 	del = require('del'),
 	basename = 'swagger-poser',
 	paths = {
@@ -35,12 +36,17 @@ gulp.task('pre-test', function () {
 
 gulp.task('test', ['pre-test'], function () {
 	return gulp.src(['spec/*.js'], { read: false })
-	.pipe(mocha())
+		.pipe(mocha())
 		.pipe(istanbul.writeReports())
 		.pipe(istanbul.enforceThresholds({ thresholds: { global: 90 } }));
-	});
+});
+
+gulp.task('codecov', ['test'], function () {
+	return  gulp.src('./coverage/lcov.info')
+		.pipe(codecov());
+});
 
 gulp.task('build', function () {
 });
 
-gulp.task('default', ['clean', 'lint', 'test', 'build']);
+gulp.task('default', ['clean', 'lint', 'test', 'codecov', 'build']);
