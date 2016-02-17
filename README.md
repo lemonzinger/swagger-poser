@@ -1,8 +1,23 @@
 # Swagger Poser
 
-[![Build Status](https://img.shields.io/travis/lemonzinger/swagger-poser/master.svg?style=flat-square&branch=master)](https://travis-ci.org/lemonzinger/swagger-poser)
+[npm-url]: https://npmjs.org/package/swagger-poser
+[npm-image]: https://img.shields.io/npm/v/swagger-poser.svg?style=flat-square
 
-Use [Swagger Poser](https://github.com/lemonzinger/poser) to generate mock data that match the Swagger spec
+[travis-url]: http://travis-ci.org/lemonzinger/swagger-poser
+[travis-image]: https://img.shields.io/travis/lemonzinger/swagger-poser/master.svg?style=flat-square
+
+[codecov-url]: https://codecov.io/github/lemonzinger/swagger-poser
+[codecov-image]: https://img.shields.io/codecov/c/github/lemonzinger/swagger-poser/master.svg?style=flat-square
+
+[depstat-url]: https://david-dm.org/lemonzinger/swagger-poser
+[depstat-image]: https://img.shields.io/david/lemonzinger/swagger-poser/master.svg?style=flat-square
+
+[devdepstat-url]: https://david-dm.org/lemonzinger/swagger-poser#info=devDependencies
+[devdepstat-image]: https://img.shields.io/david/dev/lemonzinger/swagger-poser/master.svg?style=flat-square
+
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependency Status][depstat-image]][depstat-url] [![Dev Dependency Status][devdepstat-image]][devdepstat-url]
+
+Use [Swagger Poser](https://github.com/lemonzinger/poser) to generate mock data that match a Swagger spec
 
 ## Install
 
