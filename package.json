@@ -1,0 +1,39 @@
+{
+  "name": "poser",
+  "version": "0.0.0",
+  "description": "Mock data generator based upon a swagger spec",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lemonzinger/poser"
+  },
+  "bugs": {
+    "url": "https://github.com/lemonzinger/poser/issues"
+  },
+  "keywords": [
+    "poser",
+    "swagger",
+    "mocks",
+    "generator",
+    "json"
+  ],
+  "author": "Leon Zinger",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "~3.9.0",
+    "mocha": "~2.3.4",
+    "gulp-mocha": "~2.2.0",
+    "gulp-istanbul": "~0.10.3",
+    "jshint-stylish": "~2.1.0",
+    "jshint": "~2.9.1",
+    "gulp-jshint": "~2.0.0",
+    "del": "~2.2.0"
+  },
+  "dependencies": {
+    "json-schema-faker": "~0.2.6",
+    "merge": "~1.2.0"
+  }
+}
