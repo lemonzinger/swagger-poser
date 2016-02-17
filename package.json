@@ -1,6 +1,6 @@
 {
   "name": "poser",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Mock data generator based upon a swagger spec",
   "main": "index.js",
   "scripts": {
