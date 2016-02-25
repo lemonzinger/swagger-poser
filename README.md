@@ -37,7 +37,7 @@ var poser = require('swagger-poser');
 
 var json = JSON.parse(fs.readFileSync('swagger.json').toString());
 
-var generator = poser.create(json);
+var generator = poser.from(json);
 
 var sample = generator.generate('Pet')
 
@@ -69,7 +69,7 @@ var petConfigJson = {
 	}
 });
 
-var generator = poser.create(json).withModelConfig('Pet', petConfigJson);
+var generator = poser.from(json).withModelConfig('Pet', petConfigJson);
 
 var sample = generator.generate('Pet')
 
@@ -91,17 +91,51 @@ var poser = require('swagger-poser');
 var json = JSON.parse(fs.readFileSync('swagger.json').toString());
 
 var configJson = {
+	{
+		Pet: {
+			properties: {
+				id: {
+					faker: 'random.number'
+				},
+				name: {
+					faker: 'name.firstName'
+				}
+			}
+		}
+	}
+});
+
+var generator = poser.from(json).withConfig(configJson);
+
+var sample = generator.generate('Pet')
+
+console.log(sample);
+// {
+//   "name": "Peter",
+//   "photoUrls": [
+//     "porro",
+//     "tenetur",
+//     "id esse tempore adipisci temporibus"
+//   ]
+// }
+```
+
+#### Model specific Config applied to all model definitions
+
+```javascript
+var poser = require('swagger-poser');
+
+var json = JSON.parse(fs.readFileSync('swagger.json').toString());
+
+var configJson = {
 	properties: {
-		id: {
-			faker: 'random.number'
-		},
 		name: {
 			faker: 'name.firstName'
 		}
 	}
 });
 
-var generator = poser.create(json).withConfig(configJson);
+var generator = poser.from(json).withConfigForAllModels(configJson);
 
 var sample = generator.generate('Pet')
 

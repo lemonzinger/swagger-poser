@@ -34,7 +34,6 @@
     "gulp-codecov": "~2.0.1"
   },
   "dependencies": {
-    "json-schema-faker": "~0.2.6",
-    "merge": "~1.2.0"
+    "json-schema-faker": "~0.2.6"
   }
 }

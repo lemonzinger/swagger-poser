@@ -34,7 +34,7 @@ describe('poser', function () {
 		assert.throws(function() {swaggerPoser.generate('Invalid');}, 'invalid model name does fail to generate a fake');
 	});
 
-	it('should allow the merging of config containing fakers with model definition', function () {
+	it('should allow the merging of model specific config containing fakers with model definition', function () {
 		var swaggerPoser = poser.from(json),
 			swaggerPoserReturned,
 			fake;
@@ -82,7 +82,7 @@ describe('poser', function () {
 		assert(typeof fake.photoUrls, 'array', 'generated fake.photoUrls is not an array');
 	});
 
-	it('should allow the merging of config containing format with model definition', function () {
+	it('should allow the merging of overall config containing format with model definition', function () {
 		var swaggerPoser = poser.from(json),
 			swaggerPoserReturned,
 			fake;
@@ -124,6 +124,27 @@ describe('poser', function () {
 		fake = swaggerPoser.generate('Pet');
 		assert(typeof fake, 'object', 'generated fake is not an object');
 		assert(fake.name.match(/\d\.\d\.\d{1,2}/), 'name does not match semver format');
+		assert(typeof fake.name, 'string', 'generated fake.name is not an string');
+		assert(typeof fake.photoUrls, 'array', 'generated fake.photoUrls is not an array');
+	});
+
+	it('should allow the merging of config for each model containing format with model definition', function () {
+		var swaggerPoser = poser.from(json),
+			swaggerPoserReturned,
+			fake;
+		swaggerPoserReturned = swaggerPoser.withConfigForAllModels({
+			properties: {
+				id: {
+					faker: 'random.number'
+				}
+			}
+		});
+		assert(swaggerPoserReturned === swaggerPoser, 'withModelConfig did not return original poser');
+		assert(swaggerPoserReturned.config.Pet.properties.id.faker === 'random.number', 'withModelConfig failed to set format on property');
+		assert(swaggerPoserReturned.config.User.properties.id.faker === 'random.number', 'withModelConfig failed to set format on property');
+
+		fake = swaggerPoser.generate('Pet');
+		assert(typeof fake, 'object', 'generated fake is not an object');
 		assert(typeof fake.name, 'string', 'generated fake.name is not an string');
 		assert(typeof fake.photoUrls, 'array', 'generated fake.photoUrls is not an array');
 	});
