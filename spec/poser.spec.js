@@ -136,13 +136,16 @@ describe('poser', function () {
 			properties: {
 				id: {
 					faker: 'random.number'
+				},
+				randomthing: {
+					faker: 'random.number'
 				}
 			}
 		});
 		assert(swaggerPoserReturned === swaggerPoser, 'withModelConfig did not return original poser');
-		assert(swaggerPoserReturned.config.Pet.properties.id.faker === 'random.number', 'withModelConfig failed to set format on property');
-		assert(swaggerPoserReturned.config.User.properties.id.faker === 'random.number', 'withModelConfig failed to set format on property');
-
+		assert(swaggerPoserReturned.config.Pet.properties.id.faker === 'random.number', 'withModelConfig failed to set faker on property');
+		assert(swaggerPoserReturned.config.User.properties.id.faker === 'random.number', 'withModelConfig failed to set faker on property');
+		
 		fake = swaggerPoser.generate('Pet');
 		assert(typeof fake, 'object', 'generated fake is not an object');
 		assert(typeof fake.name, 'string', 'generated fake.name is not an string');
